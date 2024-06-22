@@ -1,0 +1,132 @@
+.my {
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: solid 1px silver;
+    background-color: azure;
+    color: black;
+    margin-top: 100px;
+}
+
+#tmp {
+    padding: 5px 12px;
+    margin-top: 5px;
+}
+
+#dv1 {
+    border: solid 1px rgb(139, 139, 139);
+    background-color: lightcyan;
+    position: absolute;
+    top: 125px;
+    left: 35%;
+    width: 400px;
+    height: 255px;
+    border-radius: 10px
+}
+
+.div {
+    text-align: center;
+}
+
+#hr {
+    margin-top: 50px;
+}
+
+.hr {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#hr1 {
+    margin-bottom: 50px;
+}
+
+#my {
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: solid 1px silver;
+    background-color: azure;
+    color: black;
+}
+
+#dv3 {
+    padding-top: 20px;
+    position: absolute;
+    top: 90px;
+    left: 35%;
+    border: solid 1px rgb(139, 139, 139);
+    background-color: lightcyan;
+    width: 360px;
+}
+
+#dv4 {
+    padding-top: 20px;
+    position: absolute;
+    top: 60px;
+    left: 25%;
+    border: solid 1px rgb(139, 139, 139);
+    background-color: lightcyan;
+    width: 460px;
+}
+
+#hr3 {
+    margin-top: 20px;
+}
+
+#my {
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: solid 1px silver;
+    background-color: azure;
+    color: black;
+}
+
+#dv2 {
+    padding-top: 20px;
+    position: absolute;
+    top: 90px;
+    left: 28%;
+    border: solid 1px rgb(139, 139, 139);
+    background-color: lightcyan;
+    width: 700px;
+}
+
+p {
+    font-size: 18px;
+}
+
+table {
+    width: 700px;
+    border: solid 1px rgb(139, 139, 139);
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: solid 1px rgb(139, 139, 139);
+    margin: 0;
+    padding: 3px;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+#f1, #f2, #f3, #f4, #f5 {
+    color: red;
+    height: 20px;
+    width: 250px;
+    margin-left: 445px;
+    margin-top: -37px;
+    text-align: left;
+}
+
+
+form {
+    width: 700px;
+    position: relative;
+    padding-top: 20px;
+    top: -10px;
+}
