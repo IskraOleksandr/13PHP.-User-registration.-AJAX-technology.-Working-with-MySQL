@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add_User</title>
+    <link rel="stylesheet" type="text/css" href="../Style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="div">
+    <div id="dv4" style="width: 700px;border-radius: 10px">
+        <form action="add.php" method="POST">
+            <a href="index.html" target="_self" id="my" style="margin-top: 55px;">Назад</a>
+            <h2>Регистрация</h2>
+
+            <label class="label_tl">Полное имя:<br>
+                <input id="in1" type="text" name="full_name">
+                <p id="f1"></p>
+            </label>
+
+            <label class="label_tl"> Логин:<br>
+                <input id="in2" type="text" name="login1" required>
+                <p id="f2"></p>
+            </label>
+
+            <label class="label_tl"> Пароль:<br>
+                <input id="in3" type="password" name="pas1" required>
+                <p id="f3"></p>
+            </label>
+
+            <label class="label_tl">Подтверджение пароля:<br>
+                <input id="in4" type="password" name="pas2" required>
+                <p id="f4"></p>
+            </label>
+
+            <label class="label_tl">Email:<br>
+                <input id="in5" type="email" name="email1">
+                <p id="f5"></p>
+            </label>
+
+            <input type="button" value="Добавить" name="add" id="add_user" style="margin-top: 15px">
+            <p id="ft" style=" width: 300px;height: 20px;margin-left: 200px;margin-top: -3px;margin-bottom: 25px"></p>
+        </form>
+
+    </div>
+    <script>
+        try {
+            $(document).ready(function () {
+
+                $("#add_user").click(function () {
+                    $.ajax({
+                        url: 'add_and_valid_data.php', type: 'POST',
+                        data: {
+                            key: "add", full_name: $("#in1").val(),
+                            login: $("#in2").val(), pas1: $("#in3").val(),
+                            pas2: $("#in4").val(), email: $("#in5").val()
+                        },
+                        success: function (data) {
+                            if (!!data)
+                                $("#ft").html(data[0]);
+                        }
+                    });
+
+                });
+
+                $("#add_user").prop('disabled', true);
+
+                for (let i = 1; i < 6; i++) {
+                    $("#in" + i).on("input", function () {
+                        let jqxhr1 = $.post('add_and_valid_data.php', {
+                                key: "add_users", full_name: $("#in1").val(),
+                                login: $("#in2").val(), pas1: $("#in3").val(),
+                                pas2: $("#in4").val(), email: $("#in5").val()
+                            },
+                            function (data) {
+                                if (!!data) {
+                                    $("#add_user").prop('disabled', !data[0])
+                                }
+                                for (let i = 1; i < 6; i++) {
+                                    $('#f' + i).html(data[i]);
+                                }
+                            }, 'json');
+                    });
+                }
+            });
+        } catch (e) {
+            alert(e.text);
+        }
+
+    </script>
+</div>
+
+</body>
+</html>

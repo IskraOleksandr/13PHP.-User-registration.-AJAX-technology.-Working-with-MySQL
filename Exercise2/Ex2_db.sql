@@ -12,5 +12,5 @@ CREATE TABLE Users (
 );
 
 use Users_book;
- insert into Users(fullname, login, password, email) values('Iskra Tom','dima','dima423','dima12dm@gmail.com');
+insert into Users(fullname, login, password, email) values('Tom','dima','dima423','dima12dm@gmail.com');
 select count(*) from Users

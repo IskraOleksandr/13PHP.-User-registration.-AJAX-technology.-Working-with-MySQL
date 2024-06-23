@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country and City Lists</title>
+    <link rel="stylesheet" type="text/css" href="../Style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+<select id="countries">
+    <option disabled selected>Выберите страну</option>
+</select>
+<table id="cities"></table>
+<script>
+    $(document).ready(function () {
+        let jqxhr = $.post('get_countries.php', null,
+            function (data) {
+                $.each(data, function (key, val) {
+                    $('#countries').append('<option id="option" value="' + key + '">' + val + '</option>');
+                });
+                $("#countries").change(function () {
+                    let element = document.getElementById("cities");
+                    while (element.firstChild) {
+                        element.removeChild(element.firstChild);
+                    }
+                    let jqxhr1 = $.post('get_cities.php', {ID: $(this).val()},
+                        function (data) {
+                            $('#cities').append('<tr><th class="td_th th">Города</th><tr>');
+                            let flag = true;
+                            for (let i = 0; i < data.length; i++) {
+                                if (flag)
+                                    $('#cities').append('<tr><td class="td_th td1">' + data[i] + '</td><tr>');
+                                else
+                                    $('#cities').append('<tr><td class="td_th td2">' + data[i] + '</td><tr>');
+
+                                flag = !flag;
+                            }
+                        }, 'json');
+                });
+            }, 'json');
+    });
+</script>
+</body>
+</html>
